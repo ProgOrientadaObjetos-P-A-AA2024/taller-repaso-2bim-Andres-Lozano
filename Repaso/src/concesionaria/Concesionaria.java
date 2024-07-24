@@ -1,11 +1,13 @@
 package concesionaria;
 
-import java.util.ArrayList;
-import java.util.List;
 import repaso.Vehiculo;
 
+
+
+import java.util.ArrayList;
+
 public class Concesionaria {
-    private List<Vehiculo> listadoVehiculos;
+    private ArrayList<Vehiculo> listadoVehiculos;
     private String nombreConcesionaria;
 
     public Concesionaria(String nombreConcesionaria) {
@@ -19,7 +21,9 @@ public class Concesionaria {
 
     public double calcularVentasTotales() {
         double totalVentas = 0;
-        for (Vehiculo vehiculo : listadoVehiculos) {
+        // Uso de for tradicional con ArrayList
+        for (int i = 0; i < listadoVehiculos.size(); i++) {
+            Vehiculo vehiculo = listadoVehiculos.get(i);
             totalVentas += vehiculo.precioFinal;
         }
         return totalVentas;
@@ -27,7 +31,9 @@ public class Concesionaria {
 
     public double obtenerCostoVehiculoMasCaro() {
         double maxPrecio = Double.MIN_VALUE;
-        for (Vehiculo vehiculo : listadoVehiculos) {
+        // Uso de for tradicional con ArrayList
+        for (int i = 0; i < listadoVehiculos.size(); i++) {
+            Vehiculo vehiculo = listadoVehiculos.get(i);
             if (vehiculo.precioFinal > maxPrecio) {
                 maxPrecio = vehiculo.precioFinal;
             }
@@ -37,7 +43,9 @@ public class Concesionaria {
 
     public double obtenerCostoVehiculoMasBarato() {
         double minPrecio = Double.MAX_VALUE;
-        for (Vehiculo vehiculo : listadoVehiculos) {
+        // Uso de for tradicional con ArrayList
+        for (int i = 0; i < listadoVehiculos.size(); i++) {
+            Vehiculo vehiculo = listadoVehiculos.get(i);
             if (vehiculo.precioFinal < minPrecio) {
                 minPrecio = vehiculo.precioFinal;
             }
@@ -50,7 +58,9 @@ public class Concesionaria {
         StringBuilder sb = new StringBuilder();
         sb.append("Nombre de la Concesionaria: ").append(nombreConcesionaria).append("\n");
         sb.append("------ Listado de Vehículos ------\n");
-        for (Vehiculo vehiculo : listadoVehiculos) {
+        // Uso de for tradicional con ArrayList
+        for (int i = 0; i < listadoVehiculos.size(); i++) {
+            Vehiculo vehiculo = listadoVehiculos.get(i);
             sb.append(vehiculo.toString());
         }
         sb.append("------ Resumen de Ventas ------\n");

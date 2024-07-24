@@ -19,6 +19,9 @@ public abstract class Vehiculo {
     }
 
     public abstract void calcularPrecioFinal();
+    public double obtenerpreciofinal(){
+        return precioFinal;
+    }
 
     @Override
     public String toString() {
