@@ -41,17 +41,24 @@ public class Concesionaria {
         return maxPrecio;
     }
 
-    public double obtenerCostoVehiculoMasBarato() {
-        double minPrecio = Double.MAX_VALUE;
-        // Uso de for tradicional con ArrayList
-        for (int i = 0; i < listadoVehiculos.size(); i++) {
-            Vehiculo vehiculo = listadoVehiculos.get(i);
-            if (vehiculo.precioFinal < minPrecio) {
-                minPrecio = vehiculo.precioFinal;
-            }
-        }
-        return minPrecio;
+public double obtenerCostoVehiculoMasBarato() {
+    if (listadoVehiculos.isEmpty()) {
+        throw new IllegalStateException("No hay vehículos en la concesionaria.");
     }
+
+    double minPrecio = listadoVehiculos.get(0).precioFinal; // Inicializar con el primer vehículo
+
+    // Uso de for tradicional con ArrayList, empezando desde el segundo vehículo
+    int size = listadoVehiculos.size();
+    for (int i = 1; i < size; i++) {
+        Vehiculo vehiculo = listadoVehiculos.get(i);
+        if (vehiculo.precioFinal < minPrecio) {
+            minPrecio = vehiculo.precioFinal;
+        }
+    }
+    return minPrecio;
+}
+
 
     @Override
     public String toString() {
